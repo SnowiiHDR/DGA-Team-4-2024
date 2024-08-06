@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -34,6 +35,12 @@ public void resetonWin() {
 ;         
 
 }
+public void level2() {
+        SceneManager.LoadScene("Scene2");
+
+;         
+
+}
               
 void OnCollisionEnter2D(Collision2D collider)
 {
@@ -41,5 +48,6 @@ void OnCollisionEnter2D(Collision2D collider)
             won = true;
             WinText.gameObject.SetActive(true); 
             Time.timeScale=0;
+    //level2()
  }}
     //Check if we already won. If so, allow a scene restart with keypress "R". Afterwards, make "won false"

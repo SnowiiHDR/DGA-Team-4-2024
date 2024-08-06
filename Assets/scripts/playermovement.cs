@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class PlayerMovement : MonoBehaviour
 {
+    AudioManager audioManager;
     private float horizontal;
     private float speed = 8f;
     private float jumpingPower = 16f;
@@ -13,8 +15,14 @@ public class PlayerMovement : MonoBehaviour
     private bool doubleJump;
     private float cooldown;
     float lastuse;
+    public Animator animator;
     
-    
+private void Awake()
+{
+    audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+}
+void Start() {
+}
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -27,16 +35,19 @@ public class PlayerMovement : MonoBehaviour
     {
         
         horizontal = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
         if (IsGrounded() && !Input.GetButton("Jump"))
         {
             doubleJump =false;
         } 
         if (Input.GetButtonDown("Jump") && (IsGrounded() || doubleJump))
         {
+            audioManager.PlaySFX(audioManager.jump);
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             doubleJump = !doubleJump;
         }
         if (Input.GetButtonDown("Jump") && (IsRoofed())){
+            audioManager.PlaySFX(audioManager.jump);
             rb.velocity = new Vector2(rb.velocity.x, -(jumpingPower));
         }
         
@@ -57,11 +68,11 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.6f, groundLayer);
     }
     private bool IsRoofed()
     {
-        return Physics2D.OverlapCircle(roofCheck.position, 0.2f, roofLayer);
+        return Physics2D.OverlapCircle(roofCheck.position, 0.6f, roofLayer);
     }
     private void Flip()
     {
@@ -77,8 +88,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collider.gameObject.tag == "Lethal")
         {
-        GameManager.Instance.RestartLevel();
-        }
+SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        }
     
     }
     /// For the oncollision reset portion of the assignment i utilized official unity turtorials and the documentation. https://youtu.be/QRp4V1JTZnM?si=H2SEeNR6bg32xXmd

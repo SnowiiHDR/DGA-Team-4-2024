@@ -8,7 +8,16 @@ public class gravity : MonoBehaviour
 
     public static float cooldownTime = 3f;
     public static float lastSwitchTime;
-    public static gravity Instance;    
+    public static gravity Instance; 
+    AudioManager audioManager;
+    private bool isUpright = true;
+
+ 
+private void Awake()
+{
+    audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+}
+      
     void Update()
     {
         ///If the "K" key is pressed, check the time. "lastSwitchTime + cooldownTime" checks that its been cooldownTime since we last used our power.
@@ -22,9 +31,22 @@ public class gravity : MonoBehaviour
     }
     ///Function that reverses gravity.
     void gravswap(){
+        audioManager.PlaySFX(audioManager.gravSwap);
+        upFlip();
         rb.gravityScale = rb.gravityScale *-1;
+        
 
-}}}
+    void upFlip()
+    {        {
+            isUpright = !isUpright;
+            Vector3 localScale = transform.localScale;
+            localScale.y *= -1f;
+            transform.localScale = localScale;
+        }
+
+}
+}
+}}
 ///Videos and links used to conduct ideas.
 ///https://docs.unity3d.com/ScriptReference/Rigidbody2D-gravityScale.html
 ///https://youtu.be/7MFGXRv_X5U?si=GVrIpycwlq-8keoJ
