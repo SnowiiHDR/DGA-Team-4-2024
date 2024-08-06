@@ -92,5 +92,5 @@ SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        }
     
     }
     /// For the oncollision reset portion of the assignment i utilized official unity turtorials and the documentation. https://youtu.be/QRp4V1JTZnM?si=H2SEeNR6bg32xXmd
-    /// Lagging pretty badly for some reason. Will ask for help with this.
+    /// Used Brackeys guide to help with 2d movement and animations.
 }

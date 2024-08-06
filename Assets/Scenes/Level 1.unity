@@ -2130,7 +2130,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6, y: -6.024113}
+  m_Offset: {x: 6, y: -5.8043346}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2141,7 +2141,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 40, y: 3.9517736}
+  m_Size: {x: 40, y: 3.5723243}
   m_EdgeRadius: 0
 --- !u!1 &235288595
 GameObject:
@@ -2387,6 +2387,10 @@ PrefabInstance:
     - target: {fileID: 6646161578405566394, guid: 3efa8e9fc3e804e0792e993014eba707, type: 3}
       propertyPath: m_Name
       value: phasers (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646161578405566394, guid: 3efa8e9fc3e804e0792e993014eba707, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7907720499225050611, guid: 3efa8e9fc3e804e0792e993014eba707, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2675,20 +2679,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7249805771904810897, guid: 3311c8a59021046a5a14eda4d21b6ed3, type: 3}
-      propertyPath: m_Size.x
-      value: 2.5470757
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249805771904810897, guid: 3311c8a59021046a5a14eda4d21b6ed3, type: 3}
       propertyPath: m_Size.y
-      value: 3.4383018
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249805771904810897, guid: 3311c8a59021046a5a14eda4d21b6ed3, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.00000023841858
+      value: 3.3594441
       objectReference: {fileID: 0}
     - target: {fileID: 7249805771904810897, guid: 3311c8a59021046a5a14eda4d21b6ed3, type: 3}
       propertyPath: m_Offset.y
-      value: 0.02475655
+      value: 0.036981583
       objectReference: {fileID: 0}
     - target: {fileID: 7249805771904810897, guid: 3311c8a59021046a5a14eda4d21b6ed3, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -9364,6 +9360,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: phasers (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9084195659650808893, guid: 2d2999d4b8c2f47a3807407cda680582, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9380,6 +9380,10 @@ PrefabInstance:
     - target: {fileID: 6646161578405566394, guid: 3efa8e9fc3e804e0792e993014eba707, type: 3}
       propertyPath: m_Name
       value: phasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646161578405566394, guid: 3efa8e9fc3e804e0792e993014eba707, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7907720499225050611, guid: 3efa8e9fc3e804e0792e993014eba707, type: 3}
       propertyPath: m_LocalPosition.x
