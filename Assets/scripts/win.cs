@@ -30,17 +30,14 @@ public TextMeshProUGUI WinText;
 /// Check if the flag is touching the player. If so, change "won" to true, and make the WinText appear.
 public void resetonWin() {
     if (won == true)
-        GameManager.Instance.RestartLevel();
+        GameManager.instance.RestartLevel();
         won = false;
 ;         
 
 }
-public void level2() {
-        SceneManager.LoadScene("Scene2");
+        
 
-;         
 
-}
               
 void OnCollisionEnter2D(Collision2D collider)
 {

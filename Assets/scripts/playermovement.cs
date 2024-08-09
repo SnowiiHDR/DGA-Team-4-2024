@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance = null;
     AudioManager audioManager;
     private float horizontal;
     private float speed = 8f;
@@ -17,11 +17,18 @@ public class PlayerMovement : MonoBehaviour
     float lastuse;
     public Animator animator;
     
-private void Awake()
-{
+
+private void Awake (){
     audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+//        if (Instance == null)
+//        Instance = this;
+//        else if (Instance != this)
+//        Destroy(gameObject);
+
+//        DontDestroyOnLoad(gameObject);
 }
 void Start() {
+
 }
 
     [SerializeField] private Rigidbody2D rb;
@@ -46,9 +53,9 @@ void Start() {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             doubleJump = !doubleJump;
         }
-        if (Input.GetButtonDown("Jump") && (IsRoofed())){
+        if (Input.GetButtonDown("Jump") && IsRoofed()){
             audioManager.PlaySFX(audioManager.jump);
-            rb.velocity = new Vector2(rb.velocity.x, -(jumpingPower));
+            rb.velocity = new Vector2(rb.velocity.x, -jumpingPower);
         }
         
 
@@ -72,7 +79,7 @@ void Start() {
     }
     private bool IsRoofed()
     {
-        return Physics2D.OverlapCircle(roofCheck.position, 0.6f, roofLayer);
+        return Physics2D.OverlapCircle(roofCheck.position, 2f, roofLayer);
     }
     private void Flip()
     {
@@ -88,7 +95,7 @@ void Start() {
     {
         if (collider.gameObject.tag == "Lethal")
         {
-SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        }
     
     }
     /// For the oncollision reset portion of the assignment i utilized official unity turtorials and the documentation. https://youtu.be/QRp4V1JTZnM?si=H2SEeNR6bg32xXmd

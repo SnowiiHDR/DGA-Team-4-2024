@@ -9,30 +9,34 @@ public class GameManager : MonoBehaviour
 
 {
     
-    public static GameManager Instance = null;
-    public bool won = false;
-    public bool CooldownActive;
+    public static GameManager instance = null;
     
     
-    void Awake (){
-        if (Instance == null)
-        Instance = this;
-        else if (Instance != this)
+void Awake (){
+if (instance == null){
+instance = this;
+DontDestroyOnLoad(gameObject);
+}
+else{
         Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
-
     }
+
+
+}
 
     public void RestartLevel(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale=1;
 
     }
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadSceneAsync(sceneName);
+    }
     
-    
-    public void wongameflag(){
-        Time.timeScale=0; 
+    public void NextLevel()
+    {
+       SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
  
